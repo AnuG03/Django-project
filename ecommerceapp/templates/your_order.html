@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1 style="text-align:center;color:blue;">YOUR ORDERS</h1>
+
+<div class="container">
+    </div>
+{% for i in order %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{i.product.image.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="color:black;">Customer name: <b>{{user.username}}</b></h5>
+        <p class="card-text" style="color:black;">Product name: <b>{{i.product.name}}</b></p>
+        <p class="card-text" style="color:black;">Price: <b>{{i.product.price}}</b></p>
+        <p class="card-text" style="color:black;">Order_id: <b>{{i.order_id}}</b></p>
+        <p class="card-text" style="color:black;">Ordered on: <b>{{i.ordered_date}}</b></p>
+        <p class="card-text"><b class="text-danger">Delivery_status: pending</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
